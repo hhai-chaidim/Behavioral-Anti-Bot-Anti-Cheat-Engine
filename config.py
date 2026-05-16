@@ -15,3 +15,4 @@ TRUST_SCORE_MIN = 50            # Ngưỡng kích hoạt cảnh báo Bot
 # --- CẤU HÌNH CHUỘT (MOUSE PROFILER) ---
 MOUSE_LOG_FILE = os.path.join(RAW_LOGS_DIR, 'mouse_movement.log')
 MIN_DISTANCE_TO_LOG = 1.0       # Chỉ ghi log nếu chuột nhích hơn 1 pixel để tránh nhiễu
+NETWORK_LOG_FILE = os.path.join(RAW_LOGS_DIR, 'network_jitter.log')

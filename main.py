@@ -1,30 +1,21 @@
-from core.input_profiler.mouse_tracker import MouseProfiler
+from core.network_analyzer.packet_sniffer import NetworkProfiler
+from core.decision_engine.network_behavior_analyzer import NetworkBehaviorAnalyzer
 
 def main():
     print("="*50)
     print(" HỆ THỐNG BEHAVIORAL ANTI-BOT ĐANG KHỞI ĐỘNG")
     print("="*50)
     
-    # Khởi tạo và chạy cảm biến chuột
-    profiler = MouseProfiler()
-    profiler.start_tracking()
-
-# Cập nhật lại file main.py
-from core.input_profiler.mouse_tracker import MouseProfiler
-from core.decision_engine.behavior_analyzer import MouseBehaviorAnalyzer
-
-def main():
-    print("="*50)
-    print(" HỆ THỐNG BEHAVIORAL ANTI-BOT ĐANG KHỞI ĐỘNG")
-    print("="*50)
-    
-    profiler = MouseProfiler()
-    profiler.start_tracking()
-
-    # --- ĐOẠN NÀY CHẠY SAU KHI BẤM CTRL+C ---
-    print("\n[*] Đang tiến hành phân tích dữ liệu log...")
-    analyzer = MouseBehaviorAnalyzer()
-    analyzer.analyze()
+    net_profiler = NetworkProfiler()
+    try:
+        net_profiler.start_sniffing()
+    except KeyboardInterrupt:
+        print("\n[!] Đã dừng Network Sniffer.")
+        
+        # Phân tích ngay sau khi dừng
+        print("\n[*] Đang tiến hành phân tích Jitter mạng...")
+        analyzer = NetworkBehaviorAnalyzer()
+        analyzer.analyze()
 
 if __name__ == "__main__":
     main()

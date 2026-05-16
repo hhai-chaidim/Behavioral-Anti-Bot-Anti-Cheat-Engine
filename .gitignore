@@ -1,0 +1,13 @@
+# Bỏ qua các file log do hệ thống tự sinh ra (CỰC KỲ QUAN TRỌNG)
+data/raw_logs/*.log
+
+# Bỏ qua các file cache của Python
+__pycache__/
+*.pyc
+
+# Bỏ qua môi trường ảo (nếu bạn có dùng)
+venv/
+env/
+
+# Bỏ qua cấu hình của VS Code
+.vscode/
